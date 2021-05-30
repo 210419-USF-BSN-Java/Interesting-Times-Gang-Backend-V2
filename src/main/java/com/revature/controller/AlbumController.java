@@ -20,14 +20,20 @@ private AlbumService albumServ;
 		this.albumServ = serv;
 	}
 	@GetMapping(value="/")
-	public ResponseEntity<Album> getAlbum(@RequestBody Integer id){
-		// use albumServ to get the album and all of the urls
-		// use those urls as a list, and loop through it calling the nasa api on each
-			// In each loop create a new image object by combining the two data structures
-		// send the combined structure to the front end
+	public ResponseEntity<Album> getAlbumsByUserId(@RequestBody Integer id){
+
+		//1 Use the userId to get all of the Albums with that id
+		List<Album> = albumServ.findAlbumsByUserId(id)
+
+		//2 Use the ids in the above list to return all image dates using the AlbumJunction table
+
+		//3 Use those dates to retrieve all of the JSON image objects from the API
+
+		//4 Use some form of nested loop to append images to the appropriate FrontAlbum
+
+		//5 Convert that FrontAlbum into a JSON and send it to the front
+
 		return null;
 	}
-	
-
 }
 //*/

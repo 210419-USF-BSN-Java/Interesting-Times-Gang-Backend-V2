@@ -11,6 +11,6 @@ import com.revature.model.Image;
 @Repository
 @Transactional
 public interface AlbumRepository extends JpaRepository<Album, Long>{
-	Album findAlbumById(Integer id);
+	List<Album> findAlbumsByUserId(Integer id);
 }
 //*/
