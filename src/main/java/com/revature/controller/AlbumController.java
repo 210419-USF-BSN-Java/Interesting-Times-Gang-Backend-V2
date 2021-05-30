@@ -21,6 +21,8 @@ public class AlbumController {
 	public AlbumController(AlbumService serv) {
 		this.albumServ = serv;
 	}
+	
+	// Get all albums from a specific user
 	@GetMapping(value="/")
 	public ResponseEntity<Album> getAlbumsByUserId(@RequestBody Integer id){
 

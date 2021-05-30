@@ -12,6 +12,6 @@ import com.revature.model.Image;
 @Repository
 @Transactional
 public interface ImageRepository extends JpaRepository<Image, Long>{
-	Image findImageByDate(Date date);
+	public Image findImageByDate(Date date);
 }
 //*/

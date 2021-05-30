@@ -14,18 +14,21 @@ import org.springframework.web.client.RestTemplate;
 
 import com.revature.model.Image;
 import com.revature.service.ImageService;
+import com.revature.service.TagService;
 
 @RestController
 @RequestMapping(value="/image")
 public class ImageController {
 	
 	private ImageService imageServ;
+	private TagService tagServ;
 	
-	public ImageController(ImageService serv) {
-		this.imageServ = serv;
+	public ImageController(ImageService iServ, TagService tServ) {
+		this.imageServ = iServ;
+		this.tagServ = tServ;
 	}
 	
-	
+	// Get the photo of the day (for today)
 	@GetMapping(value="/")
 	public ResponseEntity<Image[]> getApod(){
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -53,7 +56,8 @@ public class ImageController {
 		return new ResponseEntity<Image[]>(images, HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/getByDay")
+	// Get and image passed on a passed in date
+	@GetMapping(value="/date")
 	public ResponseEntity<Image[]> getByDay(@RequestBody String date){
 		String dateString = date;
 		
@@ -72,6 +76,20 @@ public class ImageController {
 
 		// Turns the Java into JSON
 		return new ResponseEntity<Image[]>(images, HttpStatus.OK);
+	}
+	
+	// Get all of the images containing a given tag
+	@GetMapping(value="/tag")
+	public ResponseEntity<Image> getAlbumsByUserId(@RequestBody Integer id){
+		//1 get the tag from the params
+		
+		//2 pull all dates related to that id from the database
+		
+		//3 use the dates to query the API and get the image JSON
+		
+		//4 send the images to the front end
+
+		return null;
 	}
 }
 //*/
