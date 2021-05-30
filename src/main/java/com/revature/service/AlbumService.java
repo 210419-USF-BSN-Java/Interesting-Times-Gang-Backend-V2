@@ -1,7 +1,7 @@
 ///*
 package com.revature.service;
 
-import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +21,8 @@ public class AlbumService {
 	public AlbumService(AlbumRepository repo) {
 		this.albumRepo = repo;
 	}
-	public Album getAlbumById(Integer id) {
-		Album a = albumRepo.findAlbumById(id);
+	public List<Album> getAlbumsById(Integer id) {
+		List<Album> a = albumRepo.findAlbumsByUserId(id);
 		return a;
 	}
 }

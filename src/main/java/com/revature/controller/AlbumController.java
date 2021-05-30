@@ -1,6 +1,8 @@
 ///*
 package com.revature.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +16,7 @@ import com.revature.service.AlbumService;
 @RequestMapping(value="/album")
 public class AlbumController {
 	
-private AlbumService albumServ;
+	private AlbumService albumServ;
 	
 	public AlbumController(AlbumService serv) {
 		this.albumServ = serv;
@@ -23,7 +25,7 @@ private AlbumService albumServ;
 	public ResponseEntity<Album> getAlbumsByUserId(@RequestBody Integer id){
 
 		//1 Use the userId to get all of the Albums with that id
-		List<Album> = albumServ.findAlbumsByUserId(id)
+		List<Album> i = albumServ.getAlbumsById(id);
 
 		//2 Use the ids in the above list to return all image dates using the AlbumJunction table
 
