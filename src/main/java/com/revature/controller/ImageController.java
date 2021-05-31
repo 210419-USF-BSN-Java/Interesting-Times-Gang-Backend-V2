@@ -2,16 +2,19 @@
 package com.revature.controller;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.text.SimpleDateFormat;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.revature.model.Album;
 import com.revature.model.Image;
 import com.revature.service.ImageService;
 import com.revature.service.TagService;
@@ -98,7 +101,7 @@ public class ImageController {
 	// Get array of images within range
 	// Params are two dates
 	@GetMapping(value="/range")
-	public ResponseEntity<Album> removeFromAlbum(@RequestBody LinkedHashMap<String, String> map){
+	public ResponseEntity<Album> getRangeOfImages(@RequestBody LinkedHashMap<String, String> map){
 		
 		return null;
 	}
@@ -106,7 +109,7 @@ public class ImageController {
 	// Get a random image
 	// No params
 	@GetMapping(value="/random")
-	public ResponseEntity<Album> removeFromAlbum() {
+	public ResponseEntity<Album> getRandomImage() {
 		
 
 		return null;
@@ -115,7 +118,7 @@ public class ImageController {
 	// Insert image into favorites album
 	// Params are the image date as the id, as the favorites album's id is hardcoded
 	@PostMapping(value="/favorite")
-	public ResponseEntity<Album> removeFromAlbum(@RequestBody LinkedHashMap<String, String> map){
+	public ResponseEntity<Album> favoriteImage(@RequestBody LinkedHashMap<String, String> map){
 		
 		return null;
 	}
@@ -123,7 +126,7 @@ public class ImageController {
 	// Update a rating
 	// Params are an integer rating and an image date
 	@PostMapping(value="/rate")
-	public ResponseEntity<Album> removeFromAlbum(@RequestBody LinkedHashMap<String, String> map){
+	public ResponseEntity<Album> rateImage(@RequestBody LinkedHashMap<String, String> map){
 		
 		return null;
 	}
