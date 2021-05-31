@@ -72,7 +72,7 @@ public class ImageController {
 		return null;
 	}
 
-	// Get and image passed on a passed in date
+	// Get an image based on a date
 	// Param is the date
 	@GetMapping(value="/date")
 	public ResponseEntity<Image[]> getByDay(@RequestBody String date){
@@ -106,8 +106,9 @@ public class ImageController {
 	// Get a random image
 	// No params
 	@GetMapping(value="/random")
-	public ResponseEntity<Album> removeFromAlbum(){
+	public ResponseEntity<Album> removeFromAlbum() {
 		
+
 		return null;
 	}
 
