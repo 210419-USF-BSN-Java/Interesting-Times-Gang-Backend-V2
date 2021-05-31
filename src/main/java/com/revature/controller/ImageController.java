@@ -29,6 +29,7 @@ public class ImageController {
 	}
 	
 	// Get the photo of the day (for today)
+	// Wont require any params
 	@GetMapping(value="/")
 	public ResponseEntity<Image[]> getApod(){
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -56,7 +57,23 @@ public class ImageController {
 		return new ResponseEntity<Image[]>(images, HttpStatus.OK);
 	}
 	
+	// Get all of the images containing a given tag
+	// Param is the tag id
+	@GetMapping(value="/tag")
+	public ResponseEntity<Image> getAlbumsByUserId(@RequestBody Integer id){
+		//1 get the tag from the params
+		
+		//2 pull all dates related to that id from the database
+		
+		//3 use the dates to query the API and get the image JSON
+		
+		//4 send the images to the front end
+
+		return null;
+	}
+
 	// Get and image passed on a passed in date
+	// Param is the date
 	@GetMapping(value="/date")
 	public ResponseEntity<Image[]> getByDay(@RequestBody String date){
 		String dateString = date;
@@ -77,18 +94,36 @@ public class ImageController {
 		// Turns the Java into JSON
 		return new ResponseEntity<Image[]>(images, HttpStatus.OK);
 	}
-	
-	// Get all of the images containing a given tag
-	@GetMapping(value="/tag")
-	public ResponseEntity<Image> getAlbumsByUserId(@RequestBody Integer id){
-		//1 get the tag from the params
-		
-		//2 pull all dates related to that id from the database
-		
-		//3 use the dates to query the API and get the image JSON
-		
-		//4 send the images to the front end
 
+	// Get array of images within range
+	// Params are two dates
+	@GetMapping(value="/range")
+	public ResponseEntity<Album> removeFromAlbum(@RequestBody LinkedHashMap<String, String> map){
+		
+		return null;
+	}
+
+	// Get a random image
+	// No params
+	@GetMapping(value="/random")
+	public ResponseEntity<Album> removeFromAlbum(){
+		
+		return null;
+	}
+
+	// Insert image into favorites album
+	// Params are the image date as the id, as the favorites album's id is hardcoded
+	@PostMapping(value="/favorite")
+	public ResponseEntity<Album> removeFromAlbum(@RequestBody LinkedHashMap<String, String> map){
+		
+		return null;
+	}
+
+	// Update a rating
+	// Params are an integer rating and an image date
+	@PostMapping(value="/rate")
+	public ResponseEntity<Album> removeFromAlbum(@RequestBody LinkedHashMap<String, String> map){
+		
 		return null;
 	}
 }

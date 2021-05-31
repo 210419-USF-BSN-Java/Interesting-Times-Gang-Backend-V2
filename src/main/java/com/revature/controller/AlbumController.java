@@ -23,6 +23,7 @@ public class AlbumController {
 	}
 	
 	// Get all albums from a specific user
+	// Will just need a user id
 	@GetMapping(value="/")
 	public ResponseEntity<Album> getAlbumsByUserId(@RequestBody Integer id){
 
@@ -37,6 +38,29 @@ public class AlbumController {
 
 		//5 Convert that FrontAlbum into a JSON and send it to the front
 
+		return null;
+	}
+
+	// Create an album
+	// Will only require an album name
+	@PostMapping(value="/create")
+	public ResponseEntity<Album> createAlbum(@RequestBody String name){
+		
+		return null;
+	}
+
+	// Insert a new photo into a specific album
+	// Will require an album id as well as all of the information about the image
+	@PostMapping(value="/insert")
+	public ResponseEntity<Album> addToAlbum(@RequestBody LinkedHashMap<String, String> map){
+		
+		return null;
+	}
+	// Delete a photo from a specific album
+	// Will just need the image date and the album id
+	@PostMapping(value="/remove")
+	public ResponseEntity<Album> removeFromAlbum(@RequestBody LinkedHashMap<String, String> map){
+		
 		return null;
 	}
 }
