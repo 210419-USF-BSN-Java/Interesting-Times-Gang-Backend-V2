@@ -1,9 +1,13 @@
-///*
+//
 package com.revature.controller;
 
 import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.concurrent.ThreadLocalRandom;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +59,7 @@ public class ImageController {
 		Image[] images = response.getBody();
 		
 		// Then make a query to the database depending on what you are looking for
-		// Get all images from the album that matche the date
+		// Get all images from the album that matches the date
 
 		return new ResponseEntity<Image[]>(images, HttpStatus.OK);
 	}
@@ -109,10 +113,32 @@ public class ImageController {
 	// Get a random image
 	// No params
 	@GetMapping(value="/random")
-	public ResponseEntity<Album> getRandomImage() {
+	public ResponseEntity<Image[]> getRandomImage() {
 		
+		//sets current date and first day of apod
+	    LocalDate currentDate = LocalDate.now();
+	    LocalDate startDate = LocalDate.of(1995, Month.JUNE, 16);
+  
+	    //finds number of days between current day and first day of apod
+	    long noOfDays = ChronoUnit.DAYS.between(startDate, currentDate);
+	    
+	    //gets a random date between current day and first day of apod
+	    LocalDate randomDate = startDate.plusDays(ThreadLocalRandom.current().nextLong(noOfDays+1));
+	    
+	    //sets randomDate in api call to apod
+		String apiCall = "https://api.nasa.gov/planetary/apod?"
+		+ "api_key=OrYgMm5s6rF8nMLv95C5bbqgl440knaSZRijQzn5"
+		+ "&start_date=" 
+		+ randomDate
+		+ "&end_date="
+		+ randomDate;
 
-		return null;
+		//packages and returns
+		RestTemplate rt = new RestTemplate();
+		ResponseEntity<Image[]> response = rt.getForEntity(apiCall, Image[].class);
+		Image[] images = response.getBody();
+		
+		return new ResponseEntity<Image[]>(images, HttpStatus.OK);
 	}
 
 	// Insert image into favorites album
