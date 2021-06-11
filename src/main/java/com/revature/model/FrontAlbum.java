@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-@Table(name="FrontAlbum")
+@Table(name="front_album") // will not be saved to database, so there is no real table for it
 public class FrontAlbum {
 	
 	@Id

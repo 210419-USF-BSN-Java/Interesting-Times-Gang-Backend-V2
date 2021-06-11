@@ -16,12 +16,11 @@ public class AlbumService {
 	public AlbumService() {
 		
 	}
-	
 	@Autowired
 	public AlbumService(AlbumRepository repo) {
 		this.albumRepo = repo;
 	}
-	public List<Album> getAlbumsById(Integer id) {
+	public List<Album> getAlbumsByUserId(Integer id) {
 		List<Album> a = albumRepo.findAlbumsByUserId(id);
 		return a;
 	}

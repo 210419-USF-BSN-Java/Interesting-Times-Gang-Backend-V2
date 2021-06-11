@@ -30,7 +30,7 @@ public class AlbumController {
 	public ResponseEntity<Album> getAlbumsByUserId(@RequestBody Integer id){
 
 		//1 Use the userId to get all of the Albums with that id
-		List<Album> i = albumServ.getAlbumsById(id);
+		List<Album> i = albumServ.getAlbumsByUserId(id);
 
 		//2 Use the ids in the above list to return all image dates using the AlbumJunction table
 

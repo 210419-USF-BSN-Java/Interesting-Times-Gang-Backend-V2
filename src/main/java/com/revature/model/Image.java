@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Entity
 @Component
-@Table(name="Image")
+@Table(name="image") // will not be saved to database, so there is no real table for it
 public class Image {
 	
 	@Id
@@ -23,7 +23,7 @@ public class Image {
 	@Column(name="hdurl", unique=true, nullable=false)
 	private String hdurl;
 	@Column(name="media_type", unique=true, nullable=false)
-	private String media_type;
+	private String mediaType;
 	@Column(name="title", unique=true, nullable=false)
 	private String title;
 	@Column(name="url", unique=true, nullable=false)
@@ -34,20 +34,20 @@ public class Image {
 	public Image() {
 		super();
 	}
-	public Image(String explanation, String title, String media_type, String url, String hdurl) {
+	public Image(String explanation, String title, String mediaType, String url, String hdurl) {
 		super();
 		this.explanation = explanation;
 		this.title = title;
-		this.media_type = media_type;
+		this.mediaType = mediaType;
 		this.url = url;
 		this.hdurl = hdurl;
 	}
-	public Image(Date date, String explanation, String title, String media_type, String url, String hdurl) {
+	public Image(Date date, String explanation, String title, String mediaType, String url, String hdurl) {
 		super();
 		this.date = date;
 		this.explanation = explanation;
 		this.title = title;
-		this.media_type = media_type;
+		this.mediaType = mediaType;
 		this.url = url;
 		this.hdurl = hdurl;
 	}
@@ -72,11 +72,11 @@ public class Image {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getMedia_type() {
-		return media_type;
+	public String getMediaType() {
+		return mediaType;
 	}
-	public void setMedia_type(String media_type) {
-		this.media_type = media_type;
+	public void setMediaType(String mediaType) {
+		this.mediaType = mediaType;
 	}
 	public String getUrl() {
 		return url;
@@ -100,7 +100,7 @@ public class Image {
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((explanation == null) ? 0 : explanation.hashCode());
 		result = prime * result + ((hdurl == null) ? 0 : hdurl.hashCode());
-		result = prime * result + ((media_type == null) ? 0 : media_type.hashCode());
+		result = prime * result + ((mediaType == null) ? 0 : mediaType.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		result = prime * result + ((url == null) ? 0 : url.hashCode());
 		return result;
@@ -129,10 +129,10 @@ public class Image {
 				return false;
 		} else if (!hdurl.equals(other.hdurl))
 			return false;
-		if (media_type == null) {
-			if (other.media_type != null)
+		if (mediaType == null) {
+			if (other.mediaType != null)
 				return false;
-		} else if (!media_type.equals(other.media_type))
+		} else if (!mediaType.equals(other.mediaType))
 			return false;
 		if (title == null) {
 			if (other.title != null)
@@ -148,7 +148,7 @@ public class Image {
 	}
 	@Override
 	public String toString() {
-		return "Image [date=" + date + ", explanation=" + explanation + ", title=" + title + ", media_type="
-				+ media_type + ", url=" + url + ", hdurl=" + hdurl + "]";
+		return "Image [date=" + date + ", explanation=" + explanation + ", title=" + title + ", mediaType="
+				+ mediaType + ", url=" + url + ", hdurl=" + hdurl + "]";
 	}
 }

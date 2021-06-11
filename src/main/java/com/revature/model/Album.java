@@ -15,7 +15,7 @@ import java.util.Date;
 
 @Entity
 @Component
-@Table(name="Album")
+@Table(name="album")
 public class Album {
 	
 	@Id
